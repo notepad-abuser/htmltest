@@ -1,0 +1,9 @@
+:root {
+    --background: rgb(66, 66, 66);
+    --background-lighter: rgb(155, 155, 155);
+    --separator: rgb(155, 155, 155);
+    --text: rgb(99, 99, 99);
+    --text-highlight: rgb(255, 255, 255);
+    --text-heading: rgb(200, 200, 200);
+    --button-highlight: rgb(200, 200, 200);
+}

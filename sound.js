@@ -2,8 +2,15 @@ console.log("hello");
 
 class PianoKey {
     constructor (htmlDiv, soundFile) {
+        /* 
+        mouse + keyboard auf demselben ui element sind abfuck
+        TODO mouse hover style auch mit classList.add/remove?
+        */
+
         this.htmlDiv = htmlDiv;
         this.htmlDiv.addEventListener("click", (event) => {this.trigger()});
+        this.htmlDiv.addEventListener("mouseleave", (event) => {this.release()});
+        this.htmlDiv.addEventListener("mouseleave", (event) => {this.release()});
 
         this.soundFile = soundFile;
     }

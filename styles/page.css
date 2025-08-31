@@ -1,23 +1,27 @@
 body {
-    background-color: darkblue;
-    font-family: sans-serif;
+    background-color: var(--background);
+    font-family:sans-serif;
     line-height: 1.6;
     margin-top: 80px;
 }
 
-p, h1, h2 {
+p,
+h1,
+h2 {
     margin: 20px;
 }
 
-.card h1, h2 {
-    color: chocolate;
+.card h1,
+h2 {
+    padding: 10px;
+    color: var(--text-heading);
     font-weight: 100;
     transition: color .6s;
 }
 
 .card {
     border: 1px solid;
-    border-color: darkblue;
+    border-color: var(--separator);
     border-radius: 20px;
     margin-top: 40px;
     margin-left: 20px;
@@ -29,13 +33,15 @@ p, h1, h2 {
     font-size: small;
 }
 
-.card:hover, .card:hover h1, .card:hover h2 {
-    color:rgb(220, 220, 220);
+.card:hover,
+.card:hover h1,
+.card:hover h2 {
+    color: white;
     border-color: white;
     transition: color .6s, border-color 2s;
 }
 
 ::selection {
-  background: chocolate;
+  background: var(--text-highlight);
   color: white;
 }
