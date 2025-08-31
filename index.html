@@ -3,6 +3,7 @@
     <head>
         <title>Sound Test</title>
         <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="piano.css" />
     </head>
 
     <body>
@@ -12,20 +13,21 @@
 
         <table>
             <tr>
-                <td><div id="c-sine" class="piano-key"></div></td>
-                <td><div id="d-sine" class="piano-key"></div></td>
-                <td><div id="e-sine" class="piano-key"></div></td>
+                <td><div id="c-sine" class="piano-key"><span>a</span></div></td>
+                <td><div id="d-sine" class="piano-key"><span>s</span></div></td>
+                <td><div id="e-sine" class="piano-key"><span>d</span></div></td>
             </tr>
 
             <tr>
-                <td><div id="kick" class="drum-key"></div></td>
-                <td><div id="snare" class="drum-key"></div></td>
-                <td><div id="hat" class="drum-key"></div></td>
+                <td><div id="kick" class="drum-key"><span>j</span></div></td>
+                <td><div id="snare" class="drum-key"><span>k</span></div></td>
+                <td><div id="hat" class="drum-key"><span>l</span></div></td>
             </tr>
 
         </table>
-
+        
+        <script src="sound.js"></script>
     </body>
 </html>
 
-<script src="sound.js"></script>
+

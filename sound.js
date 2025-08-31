@@ -3,39 +3,38 @@ console.log("hello");
 class PianoKey {
     constructor (htmlDiv, soundFile) {
         this.htmlDiv = htmlDiv;
+        this.htmlDiv.addEventListener("click", (event) => {this.trigger()});
+
         this.soundFile = soundFile;
     }
 
     trigger () {
-        //this.htmlDiv.dispatchEvent(new Event("click"));
-        const event = new Event("mouseenter", {
-            bubbles: true,    // optional, wenn Event nach oben propagieren soll
-            cancelable: true
-        });
-        this.htmlDiv.dispatchEvent(event);
+        this.htmlDiv.classList.add("key-active");
 
         this.soundFile.currentTime = 0;
         this.soundFile.play();
+    }
+
+    release () {
+        this.htmlDiv.classList.remove("key-active");
+        setTimeout(() => {
+            this.htmlDiv.style.transition = "";
+        }, 10);
+
     }
 }
 
 class KeyHandler {
     static keysPressed = new Set();
 
-    /*aaa
     static noteMap = {
-        "a": new Audio("audio/c-sine.mp3"),
-        "s": new Audio("audio/d-sine.mp3"),
-        "d": new Audio("audio/e-sine.mp3"),
+        "a": new PianoKey(document.getElementById("c-sine"), new Audio("audio/c-sine.mp3")),
+        "s": new PianoKey(document.getElementById("d-sine"), new Audio("audio/d-sine.mp3")),
+        "d": new PianoKey(document.getElementById("e-sine"), new Audio("audio/e-sine.mp3")),
 
-        "j": new Audio("audio/kick.mp3"),
-        "k": new Audio("audio/snare.mp3"),
-        "l": new Audio("audio/hat.mp3")
-    }
-    */
-
-    static noteMap = {
-        "a": new PianoKey(document.getElementById("c-sine"), new Audio("audio/c-sine.mp3"))
+        "j": new PianoKey(document.getElementById("kick"), new Audio("audio/kick.mp3")),
+        "k": new PianoKey(document.getElementById("snare"), new Audio("audio/snare.mp3")),
+        "l": new PianoKey(document.getElementById("hat"), new Audio("audio/hat.mp3"))
     }
 
     static onKeyDown (key) {
@@ -52,6 +51,7 @@ class KeyHandler {
     }
     
     static onKeyUp (key) {
+        KeyHandler.noteMap[key].release();
         KeyHandler.keysPressed.delete(key);
     }
 }
@@ -63,8 +63,3 @@ window.addEventListener("keydown", (event) => {
 window.addEventListener("keyup", (event) => {
     KeyHandler.onKeyUp(event.key);
 });
-
-const cKey = document.getElementById("c-sine");
-console.log(cKey)
-cKey.addEventListener("click", ()=>{console.log("clicked")})
-cKey.addEventListener("mouseenter", () => {console.log("mouseenter")})

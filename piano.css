@@ -1,0 +1,45 @@
+.piano-key, .drum-key {
+    cursor: pointer;
+    user-select: none;
+
+    margin-top: 40px;
+    margin-left: 20px;
+
+    width: 80px;
+    height: 160px;
+
+    border-radius: 20px;
+    background-color: gray;
+
+    text-align: center;
+
+    transition: color .6s;
+}
+
+.piano-key {
+    color: darkblue;
+}
+
+.drum-key {
+    color: darkblue;
+    height: 80px;
+    background: chocolate;
+    transition: color .6s;
+}
+
+.key-active {
+    background: chocolate;
+    color: darkblue;
+}
+
+.piano-key:hover,
+.drum-key:hover {
+    color: white;
+    transition: color .6s;
+}
+
+.piano-key span,
+.drum-key span {
+    font-family: monospace;
+    align-self: flex-end;
+}
