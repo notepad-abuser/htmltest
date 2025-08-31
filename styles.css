@@ -1,0 +1,41 @@
+body {
+    background-color: darkblue;
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin-top: 80px;
+}
+
+p, h1, h2 {
+    margin: 20px;
+}
+
+.card h1, h2 {
+    color:chocolate;
+    font-weight: 100;
+    transition: color .6s;
+}
+
+.card {
+    border: 1px solid;
+    border-color: darkblue;
+    border-radius: 20px;
+    margin-top: 40px;
+    margin-left: 20px;
+    color:cadetblue;
+    transition: color .6s, border-color .6s;
+}
+
+.card .sub-p {
+    font-size: small;
+}
+
+.card:hover, .card:hover h1, .card:hover h2 {
+    color:rgb(220, 220, 220);
+    border-color: white;
+    transition: color .6s, border-color 2s;
+}
+
+::selection {
+  background: chocolate;
+  color: white;
+}
